@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import logoImg from "@/assets/logo.png";
 
@@ -8,7 +9,7 @@ export default function MainHeader(): JSX.Element {
     return (
         <header className={classes.header}>
             <Link href="/" className={classes.logo}>
-                <img src={logoImg.src} alt="Logo" width={logoImg.width} height={logoImg.height} />
+                <Image src={logoImg} alt="Logo" priority />
                 NextLevel Food
             </Link>
             <nav className={classes.nav}>
