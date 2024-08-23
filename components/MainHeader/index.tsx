@@ -4,6 +4,7 @@ import Image from "next/image";
 import logoImg from "@/assets/logo.png";
 
 import Background from "./Background";
+import NavLink from "./NavLink";
 
 import classes from './main-header.module.css';
 
@@ -18,8 +19,8 @@ export default function MainHeader(): JSX.Element {
                 </Link>
                 <nav className={classes.nav}>
                     <ul>
-                        <li><Link href="/meals">Browse Meals</Link></li>
-                        <li><Link href="/community">Foodies Community</Link></li>
+                        <NavLink href="/meals">Browse meals</NavLink>
+                        <NavLink href="/community">Community</NavLink>
                     </ul>
                 </nav>
             </header>
