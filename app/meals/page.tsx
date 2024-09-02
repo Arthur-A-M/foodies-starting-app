@@ -3,8 +3,10 @@ import Link from "next/link";
 import classes from './page.module.css';
 
 import MealsGrid from "@/components/MealsGrid";
+import { getMeals } from "@/functions";
 
-export default function Meals(): JSX.Element {
+export default async function Meals() {
+  const dbMeals = await getMeals();
   return (
     <>
     <header>
@@ -21,7 +23,7 @@ export default function Meals(): JSX.Element {
       <h1 style={{ color: 'white', textAlign: 'center' }}>
         Meals
       </h1>
-      <MealsGrid meals={[]} />
+      <MealsGrid meals={dbMeals}/>
     </main>
     </>
   );
