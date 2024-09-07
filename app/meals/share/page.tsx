@@ -1,26 +1,9 @@
 import classes from './page.module.css';
 
 import { ImagePicker } from '@/components';
-//import MealType from '@/app/meals/[slug]';
+import { shareMeal } from '@/functions';
 
 export default function Share(): JSX.Element {
-  async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
-    'use server';
-    
-    const meal/*: MealType*/ = {
-      //id: formData.get('id') as unknown as number,
-      //slug: formData.get('slug') as string,
-      title: formData.get('title') as string,
-      image: formData.get('image') as string,
-      summary: formData.get('summary') as string,
-      instructions: formData.get('instructions') as string,
-      creator: formData.get('name') as string,
-      creator_email: formData.get('email') as string
-    };
-
-    return console.log(meal);
-  }
-
   return (
     <>
       <header className={classes.header}>
