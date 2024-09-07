@@ -1,3 +1,3 @@
-import { getMeals } from "./Meals";
+import { getMeals, getMeal } from "./Meals";
 
-export { getMeals };
+export { getMeals, getMeal };
