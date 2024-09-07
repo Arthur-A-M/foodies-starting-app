@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 import classes from './page.module.css';
 import { getMeal } from '@/functions';
+
 
 export type MealType = {
   id: number,
@@ -17,6 +19,10 @@ export type MealType = {
 export default function Meal({ params }: { params: { slug: string } }): JSX.Element {
 
   const meal: MealType = getMeal(params.slug) as MealType;
+
+  if (!meal) {
+    notFound();
+  }
 
   meal.instructions = meal.instructions.replace(/\n/g, '<br />');
 
