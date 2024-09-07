@@ -16,7 +16,8 @@ export default function ImagePicker({ label, name = 'image' }: { label: string, 
     function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
         const file = event.target.files?.[0];
         if (!file) {
-            return setPickedImage(null);
+            setPickedImage(null);
+            return;
         }
         const fileReader = new FileReader();
         fileReader.onload = () => {
@@ -47,6 +48,7 @@ export default function ImagePicker({ label, name = 'image' }: { label: string, 
                     name={name}
                     ref={ImageInput}
                     onChange={handleImageChange}
+                    required
                 />
                 <button className={classes.button} type='button' onClick={handlePickClick}>
                     Pick an Image
