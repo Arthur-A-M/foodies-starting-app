@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import classes from './page.module.css';
@@ -15,6 +16,11 @@ async function MealsComponent() {
 
   return <MealsGrid meals={dbMeals} />;
 }
+
+export const metadata: Metadata = {
+  title: 'All Meals',
+  description: 'Browse the delicious meals shared by our vibrant community!',
+};
 
 export default function Meals() {
 
