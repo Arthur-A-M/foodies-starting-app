@@ -4,17 +4,7 @@ import { notFound } from 'next/navigation';
 import classes from './page.module.css';
 import { getMeal } from '@/functions';
 
-
-export type MealType = {
-  id: number,
-  slug: string,
-  title: string,
-  image: string,
-  summary: string,
-  instructions: string,
-  creator: string,
-  creator_email: string
-}
+import type { MealType } from '@/types';
 
 export default function Meal({ params }: { params: { slug: string } }): JSX.Element {
 

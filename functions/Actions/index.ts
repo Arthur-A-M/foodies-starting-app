@@ -1,6 +1,6 @@
 'use server';
 
-//import MealType from '@/app/meals/[slug]';
+//import type { MealType } from '@/types';
 
 export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
     const meal/*: MealType*/ = {
