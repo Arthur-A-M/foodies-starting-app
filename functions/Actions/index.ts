@@ -1,8 +1,12 @@
 'use server';
 
+import { NextApiRequest, NextApiResponse } from 'next';
+import { saveMeal } from '@/functions';
+import { redirect } from 'next/dist/server/api-utils';
+
 //import type { MealType } from '@/types';
 
-export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
+export async function shareMeal(formData: FormData, req: NextApiRequest, res: NextApiResponse)/*: Promise<Response>*/ {
     const meal/*: MealType*/ = {
       //id: formData.get('id') as unknown as number,
       //slug: formData.get('slug') as string,
@@ -14,5 +18,6 @@ export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
       creator_email: formData.get('email') as string
     };
 
-    return console.log(meal);
+    await saveMeal(meal);
+    //redirect(res, 307 ,'/meals');
   }
