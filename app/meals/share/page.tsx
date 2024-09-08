@@ -1,6 +1,6 @@
 import classes from './page.module.css';
 
-import { ImagePicker } from '@/components';
+import { ImagePicker, MealsFormButton } from '@/components';
 import { shareMeal } from '@/functions';
 
 export default function Share(): JSX.Element {
@@ -41,9 +41,9 @@ export default function Share(): JSX.Element {
               required
             ></textarea>
           </p>
-          <ImagePicker label='Your image' name="image"  />
+          <ImagePicker label='Your image' name="image" />
           <p className={classes.actions}>
-            <button type="submit">Share Meal</button>
+            <MealsFormButton />
           </p>
         </form>
       </main>
