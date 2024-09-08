@@ -2,12 +2,7 @@ export type MealType = {
     id: number,
     slug: string,
     title: string,
-    image: { // this image type is wrong
-        size: Number,
-        type: String,
-        name: String,
-        lastModified: Number
-      },
+    image: any,
     summary: string,
     instructions: string,
     creator: string,

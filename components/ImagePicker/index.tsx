@@ -6,7 +6,7 @@ import classes from './index.module.css';
 
 export default function ImagePicker({ label, name = 'image' }: { label: string, name: string }) {
     const [pickedImage, setPickedImage] = useState<string | null>(null);
-    const ImageInput = useRef();
+    const ImageInput = useRef<HTMLInputElement>(null);
     function handlePickClick() {
         if (ImageInput.current) {
             ImageInput.current.click();

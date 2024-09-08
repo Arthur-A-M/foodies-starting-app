@@ -14,7 +14,7 @@ export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
     //id: formData.get('id') as unknown as number,
     //slug: formData.get('slug') as string,
     title: formData.get('title') as string,
-    image: formData.get('image'),
+    image: formData.get('image') as any,
     summary: formData.get('summary') as string,
     instructions: formData.get('instructions') as string,
     creator: formData.get('name') as string,
@@ -28,7 +28,7 @@ export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
     !isValidText(meal.creator) ||
     !isValidText(meal.creator_email) ||
     !meal.creator_email.includes('@') ||
-    !meal.image || meal.image.size === 0
+    !meal.image || (meal.image instanceof File && meal.image.size === 0)
   ) {
     throw new Error('Invalid input');
   }

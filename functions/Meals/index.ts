@@ -21,7 +21,7 @@ export function getMeal(slug: string) {
     return db.prepare('SELECT * FROM meals WHERE slug = @slug').get({ slug });
 }
 
-export async function saveMeal(meal: MealType) {
+export async function saveMeal(meal: any) {
     meal.slug = slugify(meal.title, { lower: true });
     meal.instructions = xss(meal.instructions);
 
