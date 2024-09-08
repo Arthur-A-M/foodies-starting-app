@@ -6,8 +6,11 @@ import classes from './page.module.css';
 import MealsGrid from "@/components/MealsGrid";
 import { getMeals } from "@/functions";
 
+/**For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. 
+ * Run 'npm i sharp', and Next.js will use it automatically for Image Optimization. */
 
 async function MealsComponent() {
+  console.log('fetching meals...');
   const dbMeals = await getMeals();
 
   return <MealsGrid meals={dbMeals} />;

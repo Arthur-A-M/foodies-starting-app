@@ -1,6 +1,7 @@
 'use server';
 
 import { saveMeal } from '@/functions';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 //import type { MealType } from '@/types';
@@ -34,5 +35,6 @@ export async function shareMeal(formData: FormData)/*: Promise<Response>*/ {
   }
 
   await saveMeal(meal);
+  revalidatePath('/meals');
   redirect('/meals'); // should go within try catch block
 }
