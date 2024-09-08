@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -5,6 +6,19 @@ import classes from './page.module.css';
 import { getMeal } from '@/functions';
 
 import type { MealType } from '@/types';
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const meal: MealType = getMeal(params.slug) as MealType;
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  }
+}
 
 export default function Meal({ params }: { params: { slug: string } }): JSX.Element {
 
